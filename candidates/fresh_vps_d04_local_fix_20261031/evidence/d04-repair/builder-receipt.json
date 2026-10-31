@@ -1,0 +1,145 @@
+{
+  "files": {
+    "README.md": {
+      "sha256": "be906075f2bfe929b0990809d4f36c60df01c6d399edc5ffbba6c947de2fa450",
+      "size": 11173
+    },
+    "RECOVERY.md": {
+      "sha256": "7631fde043716eba86d4d8580d9f4d68ec61e4c0f91234800be1bced099b9c24",
+      "size": 12284
+    },
+    "ansible/inventory.example.json": {
+      "sha256": "6805192c60c293057ce74b1848b673a3f50706847d60ad2c9479016678e1933b",
+      "size": 103
+    },
+    "ansible/playbook.yaml": {
+      "sha256": "e7b1184f921f350f659dbb99c0ba50f966528b62c542c9cd560537dce4b2db31",
+      "size": 2411
+    },
+    "cloud-init/user-data.yaml": {
+      "sha256": "e04ddf96dc41f07cbd05df9b8e55cf22ccf9734bec9e1d33e50fbb71b6e18434",
+      "size": 205
+    },
+    "evidence/builder-receipt.json": {
+      "sha256": "366f33f97d4f3a61376b44aa1b2a9e11e2afd51c51e7007829a645586a272066",
+      "size": 5502
+    },
+    "evidence/development-history.json": {
+      "sha256": "649093835e38b53037a0e4f00b745a5e0e19182a9b9a27a5344a15447f4bcc57",
+      "size": 1669
+    },
+    "evidence/fix-01/before/README.md": {
+      "sha256": "f4b1dbc341a9136e4f612d6a44b24f76dead93629c0cf6d2c0ef3dd4d03fb42f",
+      "size": 7049
+    },
+    "evidence/fix-01/before/RECOVERY.md": {
+      "sha256": "7b1e4641c0511fe6fbb263897b54950b814cea636a55d5254c6cde5ffff3db72",
+      "size": 10362
+    },
+    "evidence/fix-01/before/ansible/inventory.example.json": {
+      "sha256": "6805192c60c293057ce74b1848b673a3f50706847d60ad2c9479016678e1933b",
+      "size": 103
+    },
+    "evidence/fix-01/before/ansible/playbook.yaml": {
+      "sha256": "19d4db5fe97c37ee75f7d7f4e4d77a34fa24d25476707e6c96e7663cf7a019ad",
+      "size": 2428
+    },
+    "evidence/fix-01/before/cloud-init/user-data.yaml": {
+      "sha256": "e04ddf96dc41f07cbd05df9b8e55cf22ccf9734bec9e1d33e50fbb71b6e18434",
+      "size": 205
+    },
+    "evidence/fix-01/before/evidence/builder-receipt.json": {
+      "sha256": "366f33f97d4f3a61376b44aa1b2a9e11e2afd51c51e7007829a645586a272066",
+      "size": 5502
+    },
+    "evidence/fix-01/before/evidence/development-history.json": {
+      "sha256": "649093835e38b53037a0e4f00b745a5e0e19182a9b9a27a5344a15447f4bcc57",
+      "size": 1669
+    },
+    "evidence/fix-01/before/evidence/offline-tests.json": {
+      "sha256": "942fbb25e47f6809371c1f8f18f3c20976eb290663db5aa0409fdd25e4fc0a49",
+      "size": 631
+    },
+    "evidence/fix-01/before/evidence/offline-validation.json": {
+      "sha256": "aa0f883203a00f14769c48425e7b83d8cb4fc5f61ae3921ce30caf846895d87b",
+      "size": 3199
+    },
+    "evidence/fix-01/before/fixtures/synthetic-input.json": {
+      "sha256": "377c7843dcad74b99d922ccf301ce82884feab18d78b3a8ce5194b2ce4696307",
+      "size": 181
+    },
+    "evidence/fix-01/before/tests/test_bootstrap.py": {
+      "sha256": "aeecad88ef38e0b79d297de330a6d813c78805678b247779bdcf1755a00a508f",
+      "size": 15846
+    },
+    "evidence/fix-01/before/validate.py": {
+      "sha256": "838b822652c28e15a89376aec664165684c79db9f4818ba08d03a7c74c568076",
+      "size": 12968
+    },
+    "evidence/fix-01/builder-receipt.json": {
+      "sha256": "b6c1dd0524090e44db7b823ca5323a526954bfd6c477063571d8aebba7ca9f02",
+      "size": 13808
+    },
+    "evidence/fix-01/changes.patch": {
+      "sha256": "f8ecd52fa7451665f80aacc83d6a0a6067caff7f80d738e6db6aeec92451434f",
+      "size": 29543
+    },
+    "evidence/fix-01/offline-tests.json": {
+      "sha256": "8dc3366748ab7cd0be8cb26b648346dc0ff563439f6f958e1eaf93b6d1183ccf",
+      "size": 1546
+    },
+    "evidence/fix-01/offline-tests.txt": {
+      "sha256": "d992a6cd76b9f8b5619e40cfb1cad5a03076829a4da9d6924f12f215cb23d490",
+      "size": 4794
+    },
+    "evidence/fix-01/offline-validation.json": {
+      "sha256": "c3453927b6fbf6216a561a1f9e553e1811c546d01ee5d5c09f73e774c71ef78a",
+      "size": 3785
+    },
+    "evidence/fix-01/preflight.json": {
+      "sha256": "da7f67205c520aa6d1b86e77bab7703c5825348e6770d419db3c6e6fd4caecf9",
+      "size": 2225
+    },
+    "evidence/fix-01/remediation-history.json": {
+      "sha256": "f9b4bd41bf2c95c994bf87b506061066961c7754e6373e09581d8f4801fdd512",
+      "size": 1421
+    },
+    "evidence/fix-01/source-sha256.json": {
+      "sha256": "85b4ff11e750e59a5e5e057d83a7a88dcfa4dc37deeab3b054d60bb55554ad5c",
+      "size": 1134
+    },
+    "evidence/offline-tests.json": {
+      "sha256": "942fbb25e47f6809371c1f8f18f3c20976eb290663db5aa0409fdd25e4fc0a49",
+      "size": 631
+    },
+    "evidence/offline-validation.json": {
+      "sha256": "aa0f883203a00f14769c48425e7b83d8cb4fc5f61ae3921ce30caf846895d87b",
+      "size": 3199
+    },
+    "fixtures/synthetic-input.json": {
+      "sha256": "377c7843dcad74b99d922ccf301ce82884feab18d78b3a8ce5194b2ce4696307",
+      "size": 181
+    },
+    "tests/test_bootstrap.py": {
+      "size": 29746,
+      "sha256": "25f4e4f62dba2895196e721362eef72ac139c6db4901670e36dbdaf069b4d7fd"
+    },
+    "tests/test_controlled_entry.py": {
+      "sha256": "644ff9b223bcf7bf4297f355896ec9014366403700dc2a8f86ae50909469a417",
+      "size": 16754
+    },
+    "validate.py": {
+      "sha256": "a4998943f6e2ea6f7f57b0f5bf63ea4916336586fbfeff069dabcaa65c34a719",
+      "size": 14117
+    }
+  },
+  "legacy_receipt_sha256": "b6c1dd0524090e44db7b823ca5323a526954bfd6c477063571d8aebba7ca9f02",
+  "payload_sha256": {
+    "ansible/inventory.example.json": "6805192c60c293057ce74b1848b673a3f50706847d60ad2c9479016678e1933b",
+    "ansible/playbook.yaml": "e7b1184f921f350f659dbb99c0ba50f966528b62c542c9cd560537dce4b2db31",
+    "cloud-init/user-data.yaml": "e04ddf96dc41f07cbd05df9b8e55cf22ccf9734bec9e1d33e50fbb71b6e18434",
+    "fixtures/synthetic-input.json": "377c7843dcad74b99d922ccf301ce82884feab18d78b3a8ce5194b2ce4696307"
+  },
+  "schema_version": "d04-repair-v1",
+  "scope": "OFFLINE_ONLY_NOT_AUTHORITY"
+}
