@@ -1,0 +1,49 @@
+{
+  "allocs_per_disabled_call": 0,
+  "allocs_per_enabled_call": 0,
+  "batch_mallocs": 0,
+  "batch_num_gc": 0,
+  "batch_total_alloc": 0,
+  "cold_gate_ns": {
+    "max": 41619,
+    "min": 7374,
+    "p50": 8863,
+    "p90": 15113,
+    "p99": 41619
+  },
+  "cold_gate_samples": 32,
+  "delta_ns": {
+    "max": 249,
+    "min": 67,
+    "p50": 154,
+    "p90": 155,
+    "p99": 172
+  },
+  "design": "paired in-process success dial, same closure, disabled then enabled, fake inner returns immediately",
+  "disabled_ns": {
+    "max": 120,
+    "min": 25,
+    "p50": 26,
+    "p90": 27,
+    "p99": 27
+  },
+  "enabled_ns": {
+    "max": 275,
+    "min": 178,
+    "p50": 180,
+    "p90": 181,
+    "p99": 198
+  },
+  "go": "go1.26.10",
+  "goarch": "amd64",
+  "gomaxprocs": 4,
+  "goos": "linux",
+  "loadavg": "0.29 0.22 0.09 2/261 10348\n",
+  "meminfo_head": "MemTotal:       16387328 kB\nMemFree:         3376672 kB\nMemAvailable:    4831344 kB\nBuffers:           64280 kB\nCached:          1613720 kB\nSwapCached:            0 kB\nActive:           487064 kB\nInac",
+  "model": "model name\t: Intel(R) Xeon(R) Processor",
+  "not": "not production host overhead, not historical 10443 cause, not a 1ms proof",
+  "num_cpu": 4,
+  "psi": "some avg10=19.34 avg60=5.07 avg300=1.91 total=8443233\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "samples": 4096,
+  "warmup": 256
+}

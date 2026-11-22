@@ -1,0 +1,28 @@
+diff --git a/common/tls/reality_server.go b/common/tls/reality_server.go
+index 8ad59e1..d1b6803 100644
+--- a/common/tls/reality_server.go
++++ b/common/tls/reality_server.go
+@@ -11,6 +11,7 @@ import (
+ 	"net"
+ 	"time"
+ 
++	"github.com/sagernet/sing-box/common/diag10443"
+ 	"github.com/sagernet/sing-box/common/dialer"
+ 	C "github.com/sagernet/sing-box/constant"
+ 	"github.com/sagernet/sing-box/log"
+@@ -124,9 +125,13 @@ func NewRealityServer(ctx context.Context, logger log.ContextLogger, options opt
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	tlsConfig.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
++	diag10443.SetConnIDFunc(func(ctx context.Context) (uint32, bool) {
++		id, ok := log.IDFromContext(ctx)
++		return id.ID, ok
++	})
++	tlsConfig.DialContext = diag10443.WrapDialer(func(ctx context.Context, network, addr string) (net.Conn, error) {
+ 		return handshakeDialer.DialContext(ctx, network, M.ParseSocksaddr(addr))
+-	}
++	})
+ 
+ 	if options.ECH != nil && options.ECH.Enabled {
+ 		return nil, E.New("Reality is conflict with ECH")

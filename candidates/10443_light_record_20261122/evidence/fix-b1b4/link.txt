@@ -1,0 +1,7 @@
+file:
+/tmp/chiye-10443-fix-bin/sing-box-musl-a: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped
+ldd:
+	not a dynamic executable
+bytes: 92094272
+sha256: a8ca1a476fc55b437fcce8c0b2576296fc2144f7a2fd0a00a192f7aa7d0f3d16
+previous_false_build_sha256: c2e43bf718c0b4fd9503d3adc62f4ddc45aec5bf6af83c2b512326ac8cc10e59

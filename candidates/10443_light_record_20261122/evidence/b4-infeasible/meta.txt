@@ -1,0 +1,10 @@
+cwd=/workspace/candidates/10443_light_record_20261122/src
+source_head=31c2d40eb17822b6f2d5992cb414a403fdba5d21
+argv=go test -count=1 -timeout 60s -run TestB4LowerBoundProbe -v .
+CGO_ENABLED=0
+CC=unset
+go1.26.10
+local
+0
+started=2026-11-22T12:14:15Z
+finished=2026-11-22T12:14:22Z

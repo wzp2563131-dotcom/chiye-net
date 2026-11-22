@@ -1,0 +1,2 @@
+a8ca1a476fc55b437fcce8c0b2576296fc2144f7a2fd0a00a192f7aa7d0f3d16  /tmp/chiye-10443-fix-bin/sing-box-musl-a
+a8ca1a476fc55b437fcce8c0b2576296fc2144f7a2fd0a00a192f7aa7d0f3d16  /tmp/chiye-10443-fix-bin/sing-box-musl-b

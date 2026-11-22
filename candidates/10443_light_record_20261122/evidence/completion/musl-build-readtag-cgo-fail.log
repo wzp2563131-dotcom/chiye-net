@@ -1,0 +1,6 @@
+START 2026-11-22T11:29:10Z
+naive_env CGO_LDFLAGS=-fuse-ld=lld
+naive_env CC=/home/ubuntu/cronet-go/naiveproxy/src/third_party/llvm-build/Release+Asserts/bin/clang --target=x86_64-openwrt-linux-musl --sysroot=/home/ubuntu/cronet-go/naiveproxy/src/out/sysroot-build/openwrt/23.05.5/x86_64
+naive_env CXX=/home/ubuntu/cronet-go/naiveproxy/src/third_party/llvm-build/Release+Asserts/bin/clang++ --target=x86_64-openwrt-linux-musl --sysroot=/home/ubuntu/cronet-go/naiveproxy/src/out/sysroot-build/openwrt/23.05.5/x86_64
+naive_env QEMU_LD_PREFIX=/home/ubuntu/cronet-go/naiveproxy/src/out/sysroot-build/openwrt/23.05.5/x86_64
+fork/exec /tmp/go-build2011729019/b001/exe/read_tag: no such file or directory

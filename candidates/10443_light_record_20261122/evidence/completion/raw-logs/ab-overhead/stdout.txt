@@ -1,0 +1,53 @@
+=== RUN   TestABOverhead
+    ab_test.go:116: {
+          "allocs_per_disabled_call": 0,
+          "allocs_per_enabled_call": 0,
+          "batch_mallocs": 0,
+          "batch_num_gc": 0,
+          "batch_total_alloc": 0,
+          "cold_gate_ns": {
+            "max": 23038,
+            "min": 7670,
+            "p50": 8538,
+            "p90": 14231,
+            "p99": 23038
+          },
+          "cold_gate_samples": 32,
+          "delta_ns": {
+            "max": 242,
+            "min": 67,
+            "p50": 154,
+            "p90": 155,
+            "p99": 173
+          },
+          "design": "paired in-process success dial, same closure, disabled then enabled, fake inner returns immediately",
+          "disabled_ns": {
+            "max": 113,
+            "min": 24,
+            "p50": 26,
+            "p90": 27,
+            "p99": 28
+          },
+          "enabled_ns": {
+            "max": 268,
+            "min": 178,
+            "p50": 180,
+            "p90": 181,
+            "p99": 199
+          },
+          "go": "go1.26.10",
+          "goarch": "amd64",
+          "gomaxprocs": 4,
+          "goos": "linux",
+          "loadavg": "1.90 0.49 0.24 1/257 22485\n",
+          "meminfo_head": "MemTotal:       16387328 kB\nMemFree:         2141168 kB\nMemAvailable:    4820464 kB\nBuffers:          117280 kB\nCached:          2701584 kB\nSwapCached:            0 kB\nActive:           803788 kB\nInac",
+          "model": "model name\t: Intel(R) Xeon(R) Processor",
+          "not": "not production host overhead, not historical 10443 cause, not a 1ms proof",
+          "num_cpu": 4,
+          "psi": "some avg10=25.30 avg60=7.01 avg300=1.85 total=28682029\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+          "samples": 4096,
+          "warmup": 256
+        }
+--- PASS: TestABOverhead (0.00s)
+PASS
+ok  	chiye.net/diag10443	0.006s
