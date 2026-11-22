@@ -1,0 +1,83 @@
+{
+  "sing_box": {
+    "repo": "https://github.com/SagerNet/sing-box",
+    "commit": "c005f35300ce76427dc285481ec5695f5b179cd2",
+    "tree": "53d42183c16f692689448fbb949c7162564e9462",
+    "module": "github.com/sagernet/sing-box",
+    "go_mod_language": "1.25.5",
+    "source_replace_directives": [],
+    "reported_buildinfo_version": "v1.14.4",
+    "source_constant_version_without_ldflags": "unknown"
+  },
+  "toolchain": {
+    "expected": "go1.26.10",
+    "filename": "go1.26.10.linux-amd64.tar.gz",
+    "sha256": "ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5",
+    "size": 66936659
+  },
+  "modules_verified_against_source_gosum": {
+    "github.com/metacubex/utls": {
+      "version": "v1.8.7",
+      "origin_commit": "f7d52c22f3a8d2f510ad1470f75cb6c3fe26aa37",
+      "zip_sum": "h1:Cp+yWkNTFkSihETgGWq34hlVFds5HpYWVOR1xovUVTs="
+    },
+    "github.com/sagernet/sing": {
+      "version": "v0.9.7-0.20261023115459-5dc452e537bf",
+      "origin_commit": "5dc452e537bf75c5c51c54c8c4a4be1d19d85c4f",
+      "zip_sum": "h1:qWlGERjsI0F1I9e1W5Z/ARk/9KEN7xIas6e2QHEypUM="
+    },
+    "github.com/database64128/tfo-go/v2": {
+      "version": "v2.3.2",
+      "origin_commit": "8b60f807823b0e3c8e80fad1cfbb21fe120bac57",
+      "zip_sum": "h1:UhZMKiMq3swZGUiETkLBDzQnZBPSAeBMClpJGlnJ5Fw="
+    },
+    "github.com/sagernet/sing-quic": {
+      "version": "v0.7.2-0.20261020082049-7e0a5869a5f4",
+      "origin_commit": "7e0a5869a5f49ed0a685143345dfda0448bbc708",
+      "zip_sum": "h1:QuhAb8QW0pKYmSvfj/nK91libunBwVJiWb852yidlxI="
+    },
+    "github.com/sagernet/quic-go": {
+      "version": "v0.61.0-sing-box-mod.12",
+      "origin_commit": "80c132feb2112b5d0d88d02f941b1e68e56a2722",
+      "zip_sum": "h1:9/USaaiONHFeqBePb+4C/A0MBM2dmxED49UGBpHLHS4="
+    }
+  },
+  "reported_host_not_recomputed_here": {
+    "binary_sha256": "fe23d7000aaaa91f40b63641a65a1a84d96b5f179c65b63f34893e238884cd5c",
+    "unit_sha256": "259fa4ee0a29fb863bd1597eba9392bd9767c679c1e28b8b1ee91ce1ea01c84d",
+    "vcs_revision": "c005f35300ce76427dc285481ec5695f5b179cd2",
+    "vcs_modified": false,
+    "go": "go1.26.10",
+    "cgo_enabled": "1",
+    "tags": "with_gvisor,with_quic,with_dhcp,with_wireguard,with_utls,with_acme,with_clash_api,with_tailscale,with_ccm,with_ocm,with_cloudflared,with_naive_outbound,with_usbip,with_openvpn,with_openconnect,badlinkname,tfogo_checklinkname0,with_musl",
+    "buildinfo_complete": false,
+    "deps_exported": 137,
+    "module_lines_filtered": 2,
+    "build_settings_omitted": 3,
+    "empty_exported_replacements_are_not_proof": true,
+    "binary_sha256_reconfirmed_at": "2026-11-22T19:11+08:00",
+    "backup_made": false
+  },
+  "config_file_identity_19_11": {
+    "what_it_is": "current file bytes at the argv-referenced path; not process-start bytes and not the in-memory loaded config",
+    "argv_C": "/etc/sing-box",
+    "immediate_json_files": ["/etc/sing-box/config.json"],
+    "sha256": "29b338a13c531af47abdc5c0d98c78845671f6c4dd85f00303d8d703c36c7935",
+    "mode": "0640",
+    "owner": "root:gid988",
+    "size_bytes": 1404,
+    "argv_D": "/var/lib/sing-box",
+    "data_dir_mode": "0755",
+    "data_dir_owner": "uid988/gid988",
+    "data_dir_contents_enumerated": false,
+    "environment_files": "property absent; unknown",
+    "drop_in_paths": "property present and empty; that property only",
+    "inbound_index0": "REALITY 443 handshake target exactly 127.0.0.1:10443",
+    "listener_tcp_fast_open_field_present": false,
+    "target_dialer_tcp_fast_open_field_present": false,
+    "target_dialer_detour_field_present": false,
+    "field_absence_is_explicit_false": false,
+    "runtime_branch_authenticated": false,
+    "conditional_source_mechanism": "If the in-memory bool is the zero value, NewDefault sets DisableTFO true. That is not an observed runtime branch."
+  }
+}
