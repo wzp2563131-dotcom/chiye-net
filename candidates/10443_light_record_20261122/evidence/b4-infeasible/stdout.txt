@@ -1,0 +1,11 @@
+=== RUN   TestB4LowerBoundProbe
+CONST maxBytes=65536 fixedBudget=6016 recordSize=80 maxErrors=10 exportFrame=864 gateScratch=4096 index=256 maxInflight=744 controlHeapLimit=131072
+CONST sum_fixed_plus_slots=65536
+MEAS before_start goroutines=2 HeapAlloc=185024 HeapInuse=688128 StackInuse=425984 StackSys=425984 TotalAlloc=194360 Mallocs=461
+MEAS after_start_listener goroutines=3 HeapAlloc=214288 HeapInuse=712704 StackInuse=458752 StackSys=458752 TotalAlloc=328640 Mallocs=516
+MEAS one_root_handler_blocked goroutines=4 HeapAlloc=218176 HeapInuse=712704 StackInuse=458752 StackSys=458752 TotalAlloc=343944 Mallocs=609
+MEAS two_root_handlers_blocked goroutines=5 HeapAlloc=220056 HeapInuse=712704 StackInuse=458752 StackSys=458752 TotalAlloc=355504 Mallocs=687
+SOCK client_socket SO_RCVBUF=212992 SO_SNDBUF=212992
+--- PASS: TestB4LowerBoundProbe (2.17s)
+PASS
+ok  	chiye.net/diag10443	2.173s
