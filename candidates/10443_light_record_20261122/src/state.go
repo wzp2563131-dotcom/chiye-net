@@ -16,16 +16,20 @@ const (
 
 	targetAddr = "127.0.0.1:10443"
 
-	maxErrors     = 10
-	maxBytes      = 64 * 1024
-	maxAge        = 30 * time.Minute
-	indexOverhead = 256
-	exportScratch = 1024
-	recordSize    = 64
-	headerSize    = 40
-	schemaVersion = 1
-	maxUnwrap     = 4
-	gateTTL       = time.Second
+	maxErrors       = 10
+	maxBytes        = 64 * 1024
+	maxAge          = 30 * time.Minute
+	indexOverhead   = 256
+	exportFrameSize = 864
+	gateScratchSize = 4096
+	recordSize      = 80
+	headerSize      = 40
+	schemaVersion   = 2
+	maxUnwrap       = 4
+	gateTTL         = time.Second
+	// controlHeapLimit is the audited ceiling for the listener and two
+	// handlers on top of the single 64KiB arena. It is not sample memory.
+	controlHeapLimit = 128 * 1024
 )
 
 const (
@@ -90,6 +94,8 @@ type sample struct {
 	connPresent uint8
 	entryCtx    uint8
 	entryHas    uint8
+	preCtx      uint8
+	preHas      uint8
 	retCtx      uint8
 	retHas      uint8
 	class       uint8
@@ -102,6 +108,7 @@ type sample struct {
 	preMono     int64
 	retMono     int64
 	entryRemain int64
+	preRemain   int64
 	retRemain   int64
 }
 
@@ -130,7 +137,7 @@ type state struct {
 	token      uint64
 	wall       int64
 	start      time.Time
-	records    [maxErrors]sample
+	arena      []byte
 }
 
 type gateSnap struct {
@@ -166,16 +173,24 @@ var (
 	idFn atomic.Value // func(context.Context) (uint32, bool)
 
 	exportWait atomic.Value // func()
+	gatePause  atomic.Value // func()
 )
 
 func init() {
-	if indexOverhead+exportScratch+recordSize > maxBytes {
-		panic("diag10443: budget constants exceed 64KiB")
+	if fixedBudget()+maxInflight()*recordSize != maxBytes {
+		panic("diag10443: budget does not land on 64KiB")
+	}
+	if 9+headerSize+maxErrors*recordSize > exportFrameSize {
+		panic("diag10443: export frame exceeds its region")
 	}
 	nowFn.Store(time.Now)
 	if approvedSwitch {
 		_ = start(prodDir)
 	}
+}
+
+func fixedBudget() int {
+	return indexOverhead + exportFrameSize + gateScratchSize + maxErrors*recordSize
 }
 
 func now() time.Time {
@@ -217,5 +232,5 @@ func disable(reason uint8) {
 }
 
 func maxInflight() int {
-	return (maxBytes - indexOverhead - exportScratch) / recordSize
+	return (maxBytes - fixedBudget()) / recordSize
 }

@@ -1,0 +1,145 @@
+{"Time":"2026-11-22T12:03:15.169818924Z","Action":"start","Package":"chiye.net/diag10443"}
+{"Time":"2026-11-22T12:03:15.171502246Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestABOverhead"}
+{"Time":"2026-11-22T12:03:15.171515077Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"=== RUN   TestABOverhead\n"}
+{"Time":"2026-11-22T12:03:15.175188042Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"    ab_test.go:116: {\n"}
+{"Time":"2026-11-22T12:03:15.175203409Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"allocs_per_disabled_call\": 0,\n"}
+{"Time":"2026-11-22T12:03:15.175205624Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"allocs_per_enabled_call\": 0,\n"}
+{"Time":"2026-11-22T12:03:15.175207198Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"batch_mallocs\": 0,\n"}
+{"Time":"2026-11-22T12:03:15.175210004Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"batch_num_gc\": 0,\n"}
+{"Time":"2026-11-22T12:03:15.1752118Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"batch_total_alloc\": 0,\n"}
+{"Time":"2026-11-22T12:03:15.175213288Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"cold_gate_ns\": {\n"}
+{"Time":"2026-11-22T12:03:15.175214678Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"max\": 26198,\n"}
+{"Time":"2026-11-22T12:03:15.17521621Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"min\": 6652,\n"}
+{"Time":"2026-11-22T12:03:15.175217589Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p50\": 6984,\n"}
+{"Time":"2026-11-22T12:03:15.175218903Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p90\": 7565,\n"}
+{"Time":"2026-11-22T12:03:15.175220087Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p99\": 26198\n"}
+{"Time":"2026-11-22T12:03:15.175221355Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          },\n"}
+{"Time":"2026-11-22T12:03:15.175222915Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"cold_gate_samples\": 32,\n"}
+{"Time":"2026-11-22T12:03:15.175224175Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"delta_ns\": {\n"}
+{"Time":"2026-11-22T12:03:15.175225476Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"max\": 11485,\n"}
+{"Time":"2026-11-22T12:03:15.175226796Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"min\": 57,\n"}
+{"Time":"2026-11-22T12:03:15.175228129Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p50\": 160,\n"}
+{"Time":"2026-11-22T12:03:15.175229432Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p90\": 162,\n"}
+{"Time":"2026-11-22T12:03:15.1752307Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p99\": 175\n"}
+{"Time":"2026-11-22T12:03:15.175231886Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          },\n"}
+{"Time":"2026-11-22T12:03:15.175233275Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"design\": \"paired in-process success dial, same closure, disabled then enabled, fake inner returns immediately\",\n"}
+{"Time":"2026-11-22T12:03:15.175235121Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"disabled_ns\": {\n"}
+{"Time":"2026-11-22T12:03:15.175236456Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"max\": 131,\n"}
+{"Time":"2026-11-22T12:03:15.175244227Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"min\": 25,\n"}
+{"Time":"2026-11-22T12:03:15.175245934Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p50\": 26,\n"}
+{"Time":"2026-11-22T12:03:15.175247171Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p90\": 27,\n"}
+{"Time":"2026-11-22T12:03:15.17524847Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p99\": 27\n"}
+{"Time":"2026-11-22T12:03:15.175249748Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          },\n"}
+{"Time":"2026-11-22T12:03:15.175251052Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"enabled_ns\": {\n"}
+{"Time":"2026-11-22T12:03:15.175252786Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"max\": 11510,\n"}
+{"Time":"2026-11-22T12:03:15.175254302Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"min\": 184,\n"}
+{"Time":"2026-11-22T12:03:15.175255613Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p50\": 186,\n"}
+{"Time":"2026-11-22T12:03:15.175256867Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p90\": 187,\n"}
+{"Time":"2026-11-22T12:03:15.175258213Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"            \"p99\": 201\n"}
+{"Time":"2026-11-22T12:03:15.175259423Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          },\n"}
+{"Time":"2026-11-22T12:03:15.175260702Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"go\": \"go1.26.10\",\n"}
+{"Time":"2026-11-22T12:03:15.175262047Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"goarch\": \"amd64\",\n"}
+{"Time":"2026-11-22T12:03:15.175263406Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"gomaxprocs\": 4,\n"}
+{"Time":"2026-11-22T12:03:15.175264694Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"goos\": \"linux\",\n"}
+{"Time":"2026-11-22T12:03:15.175266116Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"loadavg\": \"1.37 0.32 0.28 2/262 45849\\n\",\n"}
+{"Time":"2026-11-22T12:03:15.175268844Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"meminfo_head\": \"MemTotal:       16387328 kB\\nMemFree:         1428864 kB\\nMemAvailable:    4750984 kB\\nBuffers:          138288 kB\\nCached:          3295944 kB\\nSwapCached:            0 kB\\nActive:          2026724 kB\\nInac\",\n"}
+{"Time":"2026-11-22T12:03:15.17527449Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"model\": \"model name\\t: Intel(R) Xeon(R) Processor\",\n"}
+{"Time":"2026-11-22T12:03:15.175277469Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"not\": \"not production host overhead, not historical 10443 cause, not a 1ms proof\",\n"}
+{"Time":"2026-11-22T12:03:15.175280411Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"num_cpu\": 4,\n"}
+{"Time":"2026-11-22T12:03:15.175282057Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"psi\": \"some avg10=20.47 avg60=6.34 avg300=1.47 total=105388372\\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\\n\",\n"}
+{"Time":"2026-11-22T12:03:15.1752841Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"samples\": 4096,\n"}
+{"Time":"2026-11-22T12:03:15.17528693Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"          \"warmup\": 256\n"}
+{"Time":"2026-11-22T12:03:15.175288383Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"        }\n"}
+{"Time":"2026-11-22T12:03:15.175294288Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestABOverhead","Output":"--- PASS: TestABOverhead (0.00s)\n"}
+{"Time":"2026-11-22T12:03:15.175296024Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestABOverhead","Elapsed":0}
+{"Time":"2026-11-22T12:03:15.175299023Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestControlExportOnceStopAndGate"}
+{"Time":"2026-11-22T12:03:15.175300578Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestControlExportOnceStopAndGate","Output":"=== RUN   TestControlExportOnceStopAndGate\n"}
+{"Time":"2026-11-22T12:03:15.24604137Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestControlExportOnceStopAndGate","Output":"--- PASS: TestControlExportOnceStopAndGate (0.07s)\n"}
+{"Time":"2026-11-22T12:03:15.246062797Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestControlExportOnceStopAndGate","Elapsed":0.07}
+{"Time":"2026-11-22T12:03:15.246073094Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestStopDuringExportAndBusy"}
+{"Time":"2026-11-22T12:03:15.246074662Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestStopDuringExportAndBusy","Output":"=== RUN   TestStopDuringExportAndBusy\n"}
+{"Time":"2026-11-22T12:03:15.314078402Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestStopDuringExportAndBusy","Output":"--- PASS: TestStopDuringExportAndBusy (0.07s)\n"}
+{"Time":"2026-11-22T12:03:15.314095305Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestStopDuringExportAndBusy","Elapsed":0.07}
+{"Time":"2026-11-22T12:03:15.314099155Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestGateFailureLeavesStopAndDoesNotConsumeExport"}
+{"Time":"2026-11-22T12:03:15.314101214Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestGateFailureLeavesStopAndDoesNotConsumeExport","Output":"=== RUN   TestGateFailureLeavesStopAndDoesNotConsumeExport\n"}
+{"Time":"2026-11-22T12:03:15.382956396Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestGateFailureLeavesStopAndDoesNotConsumeExport","Output":"--- PASS: TestGateFailureLeavesStopAndDoesNotConsumeExport (0.07s)\n"}
+{"Time":"2026-11-22T12:03:15.382982278Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestGateFailureLeavesStopAndDoesNotConsumeExport","Elapsed":0.07}
+{"Time":"2026-11-22T12:03:15.382986341Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestSocketLifetimeAndRefusal"}
+{"Time":"2026-11-22T12:03:15.382987979Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSocketLifetimeAndRefusal","Output":"=== RUN   TestSocketLifetimeAndRefusal\n"}
+{"Time":"2026-11-22T12:03:15.383687255Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSocketLifetimeAndRefusal","Output":"--- PASS: TestSocketLifetimeAndRefusal (0.00s)\n"}
+{"Time":"2026-11-22T12:03:15.383690822Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestSocketLifetimeAndRefusal","Elapsed":0}
+{"Time":"2026-11-22T12:03:15.383693009Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestPeerPredicate"}
+{"Time":"2026-11-22T12:03:15.383694425Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestPeerPredicate","Output":"=== RUN   TestPeerPredicate\n"}
+{"Time":"2026-11-22T12:03:15.383696685Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestPeerPredicate","Output":"--- PASS: TestPeerPredicate (0.00s)\n"}
+{"Time":"2026-11-22T12:03:15.383698223Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestPeerPredicate","Elapsed":0}
+{"Time":"2026-11-22T12:03:15.383705585Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestSchemaRejectsMutation"}
+{"Time":"2026-11-22T12:03:15.383708061Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSchemaRejectsMutation","Output":"=== RUN   TestSchemaRejectsMutation\n"}
+{"Time":"2026-11-22T12:03:15.383915239Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSchemaRejectsMutation","Output":"--- PASS: TestSchemaRejectsMutation (0.00s)\n"}
+{"Time":"2026-11-22T12:03:15.383918604Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestSchemaRejectsMutation","Elapsed":0}
+{"Time":"2026-11-22T12:03:15.383921254Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestConcurrentDialsStayInsideCaps"}
+{"Time":"2026-11-22T12:03:15.383922883Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestConcurrentDialsStayInsideCaps","Output":"=== RUN   TestConcurrentDialsStayInsideCaps\n"}
+{"Time":"2026-11-22T12:03:15.384118394Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestConcurrentDialsStayInsideCaps","Output":"--- PASS: TestConcurrentDialsStayInsideCaps (0.00s)\n"}
+{"Time":"2026-11-22T12:03:15.384121982Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestConcurrentDialsStayInsideCaps","Elapsed":0}
+{"Time":"2026-11-22T12:03:15.384124527Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestExpiryDuringGateDiffersFromInner"}
+{"Time":"2026-11-22T12:03:15.384125996Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExpiryDuringGateDiffersFromInner","Output":"=== RUN   TestExpiryDuringGateDiffersFromInner\n"}
+{"Time":"2026-11-22T12:03:16.245471719Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExpiryDuringGateDiffersFromInner","Output":"--- PASS: TestExpiryDuringGateDiffersFromInner (0.86s)\n"}
+{"Time":"2026-11-22T12:03:16.245504922Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestExpiryDuringGateDiffersFromInner","Elapsed":0.86}
+{"Time":"2026-11-22T12:03:16.245509906Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestExportGateFailureLatchesAndBusyDoesNot"}
+{"Time":"2026-11-22T12:03:16.245512497Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExportGateFailureLatchesAndBusyDoesNot","Output":"=== RUN   TestExportGateFailureLatchesAndBusyDoesNot\n"}
+{"Time":"2026-11-22T12:03:16.337500393Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExportGateFailureLatchesAndBusyDoesNot","Output":"--- PASS: TestExportGateFailureLatchesAndBusyDoesNot (0.09s)\n"}
+{"Time":"2026-11-22T12:03:16.337528016Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestExportGateFailureLatchesAndBusyDoesNot","Elapsed":0.09}
+{"Time":"2026-11-22T12:03:16.337533976Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestExactCapPermanentStopAndHeap"}
+{"Time":"2026-11-22T12:03:16.33753585Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExactCapPermanentStopAndHeap","Output":"=== RUN   TestExactCapPermanentStopAndHeap\n"}
+{"Time":"2026-11-22T12:03:16.373361724Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExactCapPermanentStopAndHeap","Output":"--- PASS: TestExactCapPermanentStopAndHeap (0.04s)\n"}
+{"Time":"2026-11-22T12:03:16.373378425Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestExactCapPermanentStopAndHeap","Elapsed":0.04}
+{"Time":"2026-11-22T12:03:16.373382427Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestRootOnlyPeerSocket"}
+{"Time":"2026-11-22T12:03:16.373384734Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestRootOnlyPeerSocket","Output":"=== RUN   TestRootOnlyPeerSocket\n"}
+{"Time":"2026-11-22T12:03:16.418875215Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestRootOnlyPeerSocket","Output":"--- PASS: TestRootOnlyPeerSocket (0.05s)\n"}
+{"Time":"2026-11-22T12:03:16.418892004Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestRootOnlyPeerSocket","Elapsed":0.05}
+{"Time":"2026-11-22T12:03:16.418897699Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestApprovedSwitchIsOff"}
+{"Time":"2026-11-22T12:03:16.418899756Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestApprovedSwitchIsOff","Output":"=== RUN   TestApprovedSwitchIsOff\n"}
+{"Time":"2026-11-22T12:03:16.418903565Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestApprovedSwitchIsOff","Output":"--- PASS: TestApprovedSwitchIsOff (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.418925611Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestApprovedSwitchIsOff","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.418928344Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestSchemaTypesHaveNoStrings"}
+{"Time":"2026-11-22T12:03:16.418929972Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSchemaTypesHaveNoStrings","Output":"=== RUN   TestSchemaTypesHaveNoStrings\n"}
+{"Time":"2026-11-22T12:03:16.418932279Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSchemaTypesHaveNoStrings","Output":"--- PASS: TestSchemaTypesHaveNoStrings (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.418934064Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestSchemaTypesHaveNoStrings","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.418936977Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestDisabledPathDoesNotRecordOrAllocate"}
+{"Time":"2026-11-22T12:03:16.418938695Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestDisabledPathDoesNotRecordOrAllocate","Output":"=== RUN   TestDisabledPathDoesNotRecordOrAllocate\n"}
+{"Time":"2026-11-22T12:03:16.418954654Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestDisabledPathDoesNotRecordOrAllocate","Output":"--- PASS: TestDisabledPathDoesNotRecordOrAllocate (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.418957088Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestDisabledPathDoesNotRecordOrAllocate","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.418960042Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestSuccessDiscardAndNonTarget"}
+{"Time":"2026-11-22T12:03:16.418961879Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSuccessDiscardAndNonTarget","Output":"=== RUN   TestSuccessDiscardAndNonTarget\n"}
+{"Time":"2026-11-22T12:03:16.419203958Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSuccessDiscardAndNonTarget","Output":"--- PASS: TestSuccessDiscardAndNonTarget (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.419206274Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestSuccessDiscardAndNonTarget","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.419208405Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestExpiredCancelAndUnknownContext"}
+{"Time":"2026-11-22T12:03:16.41921005Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExpiredCancelAndUnknownContext","Output":"=== RUN   TestExpiredCancelAndUnknownContext\n"}
+{"Time":"2026-11-22T12:03:16.419388968Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestExpiredCancelAndUnknownContext","Output":"--- PASS: TestExpiredCancelAndUnknownContext (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.41939116Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestExpiredCancelAndUnknownContext","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.419393247Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestTypedClassBeforeFlatten"}
+{"Time":"2026-11-22T12:03:16.419394817Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestTypedClassBeforeFlatten","Output":"=== RUN   TestTypedClassBeforeFlatten\n"}
+{"Time":"2026-11-22T12:03:16.419619346Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestTypedClassBeforeFlatten","Output":"--- PASS: TestTypedClassBeforeFlatten (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.419622924Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestTypedClassBeforeFlatten","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.419624735Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestTFOAndNonTFOBranches"}
+{"Time":"2026-11-22T12:03:16.419626241Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestTFOAndNonTFOBranches","Output":"=== RUN   TestTFOAndNonTFOBranches\n"}
+{"Time":"2026-11-22T12:03:16.419816697Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestTFOAndNonTFOBranches","Output":"--- PASS: TestTFOAndNonTFOBranches (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.419820016Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestTFOAndNonTFOBranches","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.419824576Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestBudgetsDoNotRenew"}
+{"Time":"2026-11-22T12:03:16.419828407Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestBudgetsDoNotRenew","Output":"=== RUN   TestBudgetsDoNotRenew\n"}
+{"Time":"2026-11-22T12:03:16.420172647Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestBudgetsDoNotRenew","Output":"--- PASS: TestBudgetsDoNotRenew (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.420175256Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestBudgetsDoNotRenew","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.420177586Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestSizeBudgetFailsClosed"}
+{"Time":"2026-11-22T12:03:16.420180048Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSizeBudgetFailsClosed","Output":"=== RUN   TestSizeBudgetFailsClosed\n"}
+{"Time":"2026-11-22T12:03:16.421662469Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestSizeBudgetFailsClosed","Output":"--- PASS: TestSizeBudgetFailsClosed (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.421678715Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestSizeBudgetFailsClosed","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.421685164Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestGateParserBoundaries"}
+{"Time":"2026-11-22T12:03:16.421687208Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestGateParserBoundaries","Output":"=== RUN   TestGateParserBoundaries\n"}
+{"Time":"2026-11-22T12:03:16.421689832Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestGateParserBoundaries","Output":"--- PASS: TestGateParserBoundaries (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.421691512Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestGateParserBoundaries","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.421693022Z","Action":"run","Package":"chiye.net/diag10443","Test":"TestNonWhitelistErrnoIsUnknown"}
+{"Time":"2026-11-22T12:03:16.421694854Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestNonWhitelistErrnoIsUnknown","Output":"=== RUN   TestNonWhitelistErrnoIsUnknown\n"}
+{"Time":"2026-11-22T12:03:16.421698115Z","Action":"output","Package":"chiye.net/diag10443","Test":"TestNonWhitelistErrnoIsUnknown","Output":"--- PASS: TestNonWhitelistErrnoIsUnknown (0.00s)\n"}
+{"Time":"2026-11-22T12:03:16.42170481Z","Action":"pass","Package":"chiye.net/diag10443","Test":"TestNonWhitelistErrnoIsUnknown","Elapsed":0}
+{"Time":"2026-11-22T12:03:16.421714952Z","Action":"output","Package":"chiye.net/diag10443","Output":"PASS\n"}
+{"Time":"2026-11-22T12:03:16.422567235Z","Action":"output","Package":"chiye.net/diag10443","Output":"ok  \tchiye.net/diag10443\t1.253s\n"}
+{"Time":"2026-11-22T12:03:16.422584745Z","Action":"pass","Package":"chiye.net/diag10443","Elapsed":1.2530000000000001}

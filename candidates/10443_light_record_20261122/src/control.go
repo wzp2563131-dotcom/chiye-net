@@ -40,6 +40,7 @@ func applyExport(w io.Writer) {
 	if !allow {
 		boundWrite(w)
 		if definitive {
+			disable(reasonGate)
 			_ = writeFrame(w, statusGate, nil)
 		} else {
 			_ = writeFrame(w, statusBusy, nil)
@@ -66,14 +67,14 @@ func applyExport(w io.Writer) {
 		return
 	}
 	st.exportBusy = true
-	payload := encodeLocked()
+	frame := encodeFrameLocked()
 	mu.Unlock()
 
 	if fn, ok := exportWait.Load().(func()); ok && fn != nil {
 		fn()
 	}
 	boundWrite(w)
-	err := writeFrame(w, statusOK, payload)
+	_, err := w.Write(frame)
 	mu.Lock()
 	if err == nil {
 		st.exported = true

@@ -19,7 +19,7 @@ argv 角色：`-C=/etc/sing-box`，该目录一层 `*.json` 只有 `/etc/sing-bo
 1. 短窗开始前重新核对二进制、unit、`/etc/sing-box/config.json` 的 dev/inode/size/属主/权限/SHA，并确认没有并发维护者。19:11 的哈希只是当时的身份。同时处理仍然未知的 `EnvironmentFiles`，以及未枚举的 `-D` 内容；能力与 xattr 也要在当时读取。进程 euid 以当时的进程为准，不用数据目录属主代替。
 2. 在主机私有目录（计划为 `/root/chiye-net-diag-backup/<window-id>/`，0700，文件 0600）保存原二进制、unit 与当时实际文件的原字节。含密文件不进仓库、不进聊天。复制后核对备份 SHA，再核对来源身份未变。现在还没有这份备份。
 3. 候选二进制单独命名，不覆盖唯一原件。配置字节保持不动。
-4. `/run/chiye-net` 必须是 0700，属主等于当时的进程 euid。本批没有给出进程 euid。不要预先创建套接字。若残留套接字，只在 `stat` 确认它是套接字后再由操作者删除；候选没有清理命令。
+4. `/run/chiye-net` 必须是 0700，属主等于当时的进程 euid，套接字 0600。不要为了让 root 连上而把服务提成 root。控制面只接受对端 uid 0。切换前单独核对：进程 euid、capability、user namespace、mount namespace，以及 root 在该命名空间里能否访问这个目录。本批没有给出进程 euid。不要预先创建套接字。若残留套接字，只在 `stat` 确认它是套接字后再由操作者删除；候选没有清理命令。
 5. 只有调度令明确改 `approvedSwitch` 并重建之后，记录才会臂启动。STOP 与一次导出不需要再做服务动作。
 6. 回滚用预先批准的 sing-box 服务短窗恢复原二进制字节、路径和权限，并重算 SHA。配置应保持原样。不重启整机，不 reload nginx，不改超时或路由。
 

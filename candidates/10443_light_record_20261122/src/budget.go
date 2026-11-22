@@ -29,7 +29,8 @@ func armBudget() error {
 		token:    token,
 		wall:     wall.UnixNano(),
 		start:    wall,
-		reserved: indexOverhead + exportScratch,
+		reserved: fixedBudget(),
+		arena:    make([]byte, maxBytes),
 	}
 	baseAt.Store(time.Now())
 	return nil
@@ -80,6 +81,9 @@ func reserve() (uint32, bool) {
 	st.reserved += recordSize
 	st.inflight++
 	st.attempts++
+	if st.reserved == maxBytes {
+		stopLocked(reasonSize)
+	}
 	return st.attempts, true
 }
 
@@ -124,13 +128,12 @@ func commitOrDrop(s sample, dialErr error) {
 		st.dropped++
 		return
 	}
-	if st.reserved+recordSize > maxBytes {
+	if st.arena == nil {
 		stopLocked(reasonSize)
 		st.dropped++
 		return
 	}
-	st.reserved += recordSize
-	st.records[st.nrec] = s
+	putRecord(retainedSlot(st.nrec), &s)
 	st.nrec++
 	st.errors++
 	if st.errors >= maxErrors {

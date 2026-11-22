@@ -498,7 +498,12 @@ func resetKeepGate(t *testing.T) {
 	st.nrec = 0
 	st.errors = 0
 	st.dropped = 0
-	st.records = [maxErrors]sample{}
+	if st.arena != nil {
+		off := indexOverhead + exportFrameSize + gateScratchSize
+		for i := 0; i < maxErrors*recordSize; i++ {
+			st.arena[off+i] = 0
+		}
+	}
 	mu.Unlock()
 }
 
@@ -552,7 +557,11 @@ func onlyRecord(t *testing.T) sample {
 	if st.nrec != 1 {
 		t.Fatalf("records=%d", st.nrec)
 	}
-	return st.records[0]
+	rec, err := takeRecord(retainedSlot(0))
+	if err != nil {
+		t.Fatal(err)
+	}
+	return rec
 }
 
 func assertNoSecrets(t *testing.T, blob []byte) {

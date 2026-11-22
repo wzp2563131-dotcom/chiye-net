@@ -247,11 +247,11 @@ func peerOK(conn *net.UnixConn) bool {
 	if cerr != nil || gerr != nil || ucred == nil {
 		return false
 	}
-	return peerAllowed(ucred.Uid, uint32(os.Geteuid()))
+	return peerAllowed(ucred.Uid)
 }
 
-func peerAllowed(peer, self uint32) bool {
-	return peer == 0 || peer == self
+func peerAllowed(peer uint32) bool {
+	return peer == 0
 }
 
 func shutdown() {

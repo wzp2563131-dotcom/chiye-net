@@ -8,6 +8,7 @@ func resetForTest() {
 	setNow(nil)
 	idFn.Store(func(context.Context) (uint32, bool) { return 0, false })
 	exportWait.Store(func() {})
+	gatePause.Store(func() {})
 	gateMu.Lock()
 	gateCache = gateSnap{}
 	gateBusy = false

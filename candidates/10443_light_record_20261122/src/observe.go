@@ -45,8 +45,9 @@ func observe(ctx context.Context, network, addr string, inner DialFunc) (net.Con
 	if !targetMatch(network, addr) {
 		return inner(ctx, network, addr)
 	}
-	entryEnum, entryHas, entryRemain := snapCtx(ctx)
+	// Entry sample is before gate and reservation. It is not the pre-dial sample.
 	entryMono := monoNs()
+	entryEnum, entryHas, entryRemain := snapCtx(ctx)
 	allow, definitive := gateDecision()
 	if !allow {
 		if definitive {
@@ -64,8 +65,11 @@ func observe(ctx context.Context, network, addr string, inner DialFunc) (net.Con
 			releaseInflight()
 		}
 	}()
+	// Pre sample is after gate/reservation and immediately before inner.
 	preMono := monoNs()
+	preEnum, preHas, preRemain := snapCtx(ctx)
 	conn, err := inner(ctx, network, addr)
+	retMono := monoNs()
 	retEnum, retHas, retRemain := snapCtx(ctx)
 	cls := safeClassify(err)
 	id, idOK := loadID(ctx)
@@ -82,6 +86,8 @@ func observe(ctx context.Context, network, addr string, inner DialFunc) (net.Con
 		connPresent: present,
 		entryCtx:    entryEnum,
 		entryHas:    entryHas,
+		preCtx:      preEnum,
+		preHas:      preHas,
 		retCtx:      retEnum,
 		retHas:      retHas,
 		class:       cls.class,
@@ -92,8 +98,9 @@ func observe(ctx context.Context, network, addr string, inner DialFunc) (net.Con
 		errno:       cls.errno,
 		entryMono:   entryMono,
 		preMono:     preMono,
-		retMono:     monoNs(),
+		retMono:     retMono,
 		entryRemain: entryRemain,
+		preRemain:   preRemain,
 		retRemain:   retRemain,
 	}, err)
 	return conn, err

@@ -5,10 +5,13 @@ package diag10443
 import (
 	"bytes"
 	"context"
+	"encoding/hex"
 	"errors"
 	"net"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"strconv"
 	"sync"
 	"syscall"
 	"testing"
@@ -39,7 +42,7 @@ func TestControlExportOnceStopAndGate(t *testing.T) {
 	if err != syscall.ECONNREFUSED {
 		t.Fatal(err)
 	}
-	status, payload, err := dialCommand(sock, cmdExport)
+	status, payload, err := dialRoot(sock, cmdExport)
 	if err != nil || status != statusOK {
 		t.Fatalf("export status=%d err=%v", status, err)
 	}
@@ -54,11 +57,11 @@ func TestControlExportOnceStopAndGate(t *testing.T) {
 		t.Fatalf("flags=%b", flags)
 	}
 	assertNoSecrets(t, payload)
-	status, payload, err = dialCommand(sock, cmdExport)
+	status, payload, err = dialRoot(sock, cmdExport)
 	if err != nil || status != statusAlready || len(payload) != 0 {
 		t.Fatalf("second export status=%d n=%d err=%v", status, len(payload), err)
 	}
-	status, _, err = dialCommand(sock, cmdStop)
+	status, _, err = dialRoot(sock, cmdStop)
 	if err != nil || status != statusOK || enabled.Load() {
 		t.Fatalf("stop status=%d enabled=%v err=%v", status, enabled.Load(), err)
 	}
@@ -69,7 +72,7 @@ func TestControlExportOnceStopAndGate(t *testing.T) {
 	if recordCount() != before {
 		t.Fatal("stop did not disable recording")
 	}
-	status, _, err = dialCommand(sock, 9)
+	status, _, err = dialRoot(sock, 9)
 	if err != nil || status != statusBad {
 		t.Fatalf("bad cmd status=%d err=%v", status, err)
 	}
@@ -94,15 +97,15 @@ func TestStopDuringExportAndBusy(t *testing.T) {
 	}
 	exportDone := make(chan result, 1)
 	go func() {
-		status, payload, err := dialCommand(sock, cmdExport)
+		status, payload, err := dialRoot(sock, cmdExport)
 		exportDone <- result{status, err, len(payload)}
 	}()
 	<-inHook
-	stopStatus, _, err := dialCommand(sock, cmdStop)
+	stopStatus, _, err := dialRoot(sock, cmdStop)
 	if err != nil || stopStatus != statusOK {
 		t.Fatalf("stop during export %d %v", stopStatus, err)
 	}
-	busyStatus, busyPayload, err := dialCommand(sock, cmdExport)
+	busyStatus, busyPayload, err := dialRoot(sock, cmdExport)
 	if err != nil || busyStatus != statusBusy || len(busyPayload) != 0 {
 		t.Fatalf("busy status=%d n=%d err=%v", busyStatus, len(busyPayload), err)
 	}
@@ -114,7 +117,7 @@ func TestStopDuringExportAndBusy(t *testing.T) {
 	if enabled.Load() {
 		t.Fatal("stop did not clear recording")
 	}
-	status, payload, err := dialCommand(sock, cmdExport)
+	status, payload, err := dialRoot(sock, cmdExport)
 	if err != nil || status != statusAlready || len(payload) != 0 {
 		t.Fatalf("post export %d %d %v", status, len(payload), err)
 	}
@@ -146,11 +149,11 @@ func TestGateFailureLeavesStopAndDoesNotConsumeExport(t *testing.T) {
 	if !called || recordCount() != 0 {
 		t.Fatal("gate failure still dialed or recorded")
 	}
-	status, _, err := dialCommand(sock, cmdStop)
+	status, _, err := dialRoot(sock, cmdStop)
 	if err != nil || status != statusOK {
 		t.Fatalf("stop under gate %d %v", status, err)
 	}
-	status, payload, err := dialCommand(sock, cmdExport)
+	status, payload, err := dialRoot(sock, cmdExport)
 	if err != nil || status != statusGate || len(payload) != 0 {
 		t.Fatalf("export under gate %d %d %v", status, len(payload), err)
 	}
@@ -158,14 +161,14 @@ func TestGateFailureLeavesStopAndDoesNotConsumeExport(t *testing.T) {
 	gateMu.Lock()
 	gateCache = gateSnap{}
 	gateMu.Unlock()
-	status, payload, err = dialCommand(sock, cmdExport)
+	status, payload, err = dialRoot(sock, cmdExport)
 	if err != nil || status != statusOK {
 		t.Fatalf("export after gate recovered %d %v", status, err)
 	}
 	if _, _, _, _, err := decodeExport(payload); err != nil {
 		t.Fatal(err)
 	}
-	status, _, err = dialCommand(sock, cmdExport)
+	status, _, err = dialRoot(sock, cmdExport)
 	if err != nil || status != statusAlready {
 		t.Fatalf("second %d %v", status, err)
 	}
@@ -261,8 +264,63 @@ func TestSocketLifetimeAndRefusal(t *testing.T) {
 	}
 }
 
+func dialRoot(path string, cmd byte) (byte, []byte, error) {
+	script := "/tmp/diag10443-root-client.py"
+	if _, err := os.Stat(script); err != nil {
+		if err := os.WriteFile(script, []byte(rootClientScript), 0o644); err != nil {
+			return 0, nil, err
+		}
+	}
+	out, err := exec.Command("sudo", "-n", "python3", script, path, strconv.Itoa(int(cmd))).CombinedOutput()
+	if err != nil {
+		return 0, nil, errors.New(string(out))
+	}
+	var statusLine, payloadLine string
+	for _, line := range bytes.Split(out, []byte("\n")) {
+		if bytes.HasPrefix(line, []byte("STATUS ")) {
+			statusLine = string(line[len("STATUS "):])
+		}
+		if bytes.HasPrefix(line, []byte("PAYLOAD ")) {
+			payloadLine = string(line[len("PAYLOAD "):])
+		}
+	}
+	statusNum, err := strconv.Atoi(statusLine)
+	if err != nil {
+		return 0, nil, err
+	}
+	payload, err := hex.DecodeString(payloadLine)
+	if err != nil {
+		return 0, nil, err
+	}
+	return byte(statusNum), payload, nil
+}
+
+const rootClientScript = `import socket, sys
+s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+s.settimeout(2)
+s.connect(sys.argv[1])
+s.sendall(bytes([0x43, 0x34, 0x44, 0x31, int(sys.argv[2])]))
+buf = b""
+while len(buf) < 9:
+    chunk = s.recv(9 - len(buf))
+    if not chunk:
+        raise SystemExit("short header")
+    buf += chunk
+n = int.from_bytes(buf[5:9], "big")
+while len(buf) < 9 + n:
+    chunk = s.recv(9 + n - len(buf))
+    if not chunk:
+        raise SystemExit("short body")
+    buf += chunk
+if buf[:4] != b"C4D0":
+    raise SystemExit("bad magic")
+print("STATUS", buf[4])
+print("PAYLOAD", buf[9:].hex())
+`
+
 func TestPeerPredicate(t *testing.T) {
-	if !peerAllowed(0, 5) || !peerAllowed(5, 5) || peerAllowed(4, 5) {
+	// Predicate only. Cross-UID SO_PEERCRED is TestRootOnlyPeerSocket.
+	if !peerAllowed(0) || peerAllowed(5) || peerAllowed(4) || peerAllowed(1000) {
 		t.Fatal("peer predicate")
 	}
 }
@@ -276,7 +334,7 @@ func TestSchemaRejectsMutation(t *testing.T) {
 	if _, _, _, _, err := decodeExport(blob); err != nil {
 		t.Fatal(err)
 	}
-	blob[headerSize+14] = 1
+	blob[headerSize+72] = 1
 	if _, _, _, _, err := decodeExport(blob); err == nil {
 		t.Fatal("nonzero record pad accepted")
 	}

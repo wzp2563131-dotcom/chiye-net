@@ -1,0 +1,14 @@
+name=gofmt
+cwd=/workspace/candidates/10443_light_record_20261122/src
+argv=gofmt -l . 
+PATH=/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/tmp/chiye-10443-build/go/bin:/usr/local/cargo/bin:/exec-daemon:/exec-daemon/tools:/usr/local/cargo/bin:/home/ubuntu/.nvm/versions/node/v22.23.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+GOTOOLCHAIN=local
+CGO_ENABLED=1
+go1.26.10
+local
+1
+linux
+amd64
+v1
+started=2026-11-22T12:02:59Z
+finished=2026-11-22T12:02:59Z

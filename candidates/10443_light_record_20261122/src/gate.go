@@ -13,6 +13,9 @@ import (
 // refresher. A passing cache may be up to gateTTL old, so this is not
 // continuous protection.
 func gateDecision() (allow, definitive bool) {
+	if fn, ok := gatePause.Load().(func()); ok && fn != nil {
+		fn()
+	}
 	nowT := now()
 	gateMu.Lock()
 	if !gateCache.at.IsZero() {
@@ -42,33 +45,36 @@ func gateDecision() (allow, definitive bool) {
 }
 
 func readGate(p gatePathSet) bool {
-	load, ok := readBounded(p.load, 256)
-	if !ok || !loadOK(load) {
+	load, ok := readScratch(p.load, 256)
+	if !ok || !loadOK(string(load)) {
 		return false
 	}
-	psi, ok := readBounded(p.psi, 1024)
-	if !ok || !psiOK(psi) {
+	psi, ok := readScratch(p.psi, 1024)
+	if !ok || !psiOK(string(psi)) {
 		return false
 	}
-	mem, ok := readBounded(p.mem, 4096)
-	if !ok || !memOK(mem) {
+	mem, ok := readScratch(p.mem, 4096)
+	if !ok || !memOK(string(mem)) {
 		return false
 	}
 	return true
 }
 
-func readBounded(path string, limit int) (string, bool) {
+func readScratch(path string, limit int) ([]byte, bool) {
+	dst := gateScratch()
+	if dst == nil || limit > len(dst) {
+		return nil, false
+	}
 	f, err := os.Open(path)
 	if err != nil {
-		return "", false
+		return nil, false
 	}
 	defer f.Close()
-	buf := make([]byte, limit)
-	n, err := f.Read(buf)
+	n, err := f.Read(dst[:limit])
 	if n <= 0 || (err != nil && err != io.EOF) {
-		return "", false
+		return nil, false
 	}
-	return string(buf[:n]), true
+	return dst[:n], true
 }
 
 func loadOK(text string) bool {
